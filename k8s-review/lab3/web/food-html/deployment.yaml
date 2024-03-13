@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: lab3
+  name: dep-web-goid
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pod-web-goid
+  template:
+    metadata:
+      labels:
+        app: pod-web-goid
+    spec:
+      containers:
+      - name: ctn-web-goid
+        image: leetd/static-web-food:v1.2
+        ports:
+        - containerPort: 80

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: lab3
+  name: dep-web-gamepad
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pod-web-gamepad
+  template:
+    metadata:
+      labels:
+        app: pod-web-gamepad
+    spec:
+      containers:
+      - name: ctn-web-gamepad
+        image: leetd/static-web-gamepad:v1.9
+        ports:
+        - containerPort: 80
